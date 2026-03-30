@@ -2,13 +2,13 @@
 # EKS Cluster
 ################################################################################
 resource "aws_eks_cluster" "main" {
-  name_prefix = var.cluster_name
+  name    = var.cluster_name
   role_arn    = var.cluster_iam_role_arn
   version     = var.kubernetes_version
 
   vpc_config {
     subnet_ids              = concat(var.private_subnet_ids, var.public_subnet_ids)
-    security_groups         = [var.cluster_security_group_id]
+    security_group_ids      = [var.cluster_security_group_id]
     endpoint_private_access = var.endpoint_private_access
     endpoint_public_access  = var.endpoint_public_access
     public_access_cidrs     = var.public_access_cidrs

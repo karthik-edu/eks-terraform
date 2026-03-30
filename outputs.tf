@@ -112,10 +112,10 @@ output "configure_kubectl" {
 output "kubeconfig" {
   description = "Kubeconfig for kubectl"
   value = {
-    apiVersion      = "client.authentication.k8s.io/v1beta1"
-    kind            = "ExecConfig"
-    command         = "aws"
-    args            = ["eks", "get-token", "--cluster-name", module.eks_cluster.cluster_name, "--region", var.aws_region]
+    apiVersion = "client.authentication.k8s.io/v1beta1"
+    kind       = "ExecConfig"
+    command    = "aws"
+    args       = ["eks", "get-token", "--cluster-name", module.eks_cluster.cluster_name, "--region", var.aws_region]
   }
   sensitive = true
 }
